@@ -10,5 +10,6 @@ data class User (
         @ColumnInfo(name = "firstname")var firstname: String,
         @ColumnInfo(name = "username")var username: String,
         @ColumnInfo(name = "email")var email: String,
-        @ColumnInfo(name = "password")var password: String
+        @ColumnInfo(name = "password")var password: String,
+        var listOfFidelitycards: Fidelitycards
 )
