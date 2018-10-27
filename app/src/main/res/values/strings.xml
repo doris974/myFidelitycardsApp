@@ -1,6 +1,15 @@
 <resources>
-    <string name="app_name">My Fidelitycard App</string>
+    <string name="app_name">My Fidelitycards App</string>
     <string name="field_name">Name</string>
     <string name="field_firstname">Firstname</string>
     <string name="welcome_sentence_login">Welcome to \n My Fidelitycard App</string>
+    <string name="title_activity_add_auser">AddAUserActivity</string>
+    <string name="add_a_new_user">Add a new user</string>
+    <string name="name">Name</string>
+    <string name="firstname">Firstname</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="email_address">Email address</string>
+    <string name="validate">Validate</string>
+    <string name="cancel">Cancel</string>
 </resources>

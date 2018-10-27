@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".activity.LoginActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimaryDark"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/veryLightGrey"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
     <TextView
     android:id="@+id/tvWelcomeLogin"
@@ -13,14 +25,32 @@
     android:text="@string/welcome_sentence_login"
     android:layout_marginTop="60dp"
     android:textStyle="bold"
-    android:textSize="35dp"
+    android:textSize="35sp"
     android:textAlignment="center"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/lvUsersLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tvWelcomeLogin">
+        android:layout_margin="40dp">
     </android.support.v7.widget.RecyclerView>
 
-</RelativeLayout>
+    <Button
+        android:id="@+id/btnAddANewUserLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_person_add_green_22dp"
+        android:drawablePadding="10dp"
+        android:text="@string/add_a_new_user"
+        android:textAllCaps="false"
+        android:textSize="18sp"
+        android:textAlignment="textStart"
+        android:background="#FFF"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:onClick="ToAddAUserActivity"
+        />
+
+
+
+</LinearLayout>
