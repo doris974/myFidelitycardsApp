@@ -2,53 +2,47 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "dc35494d9dfdf5e3c2e093a37f3e31e5",
+    "identityHash": "fff78b70a5fd9ed72c7609cc8a864e16",
     "entities": [
       {
         "tableName": "user",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `firstname` TEXT NOT NULL, `username` TEXT NOT NULL, `email` TEXT NOT NULL, `password` TEXT NOT NULL, `listOfFidelitycardS` TEXT NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT, `firstname` TEXT, `email` TEXT, `password` TEXT, `listOfFidelitycardS` TEXT)",
         "fields": [
           {
             "fieldPath": "id",
             "columnName": "id",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "name",
             "columnName": "name",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "firstname",
             "columnName": "firstname",
             "affinity": "TEXT",
-            "notNull": true
-          },
-          {
-            "fieldPath": "username",
-            "columnName": "username",
-            "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "email",
             "columnName": "email",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "password",
             "columnName": "password",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "listOfFidelitycardS",
             "columnName": "listOfFidelitycardS",
             "affinity": "TEXT",
-            "notNull": true
+            "notNull": false
           }
         ],
         "primaryKey": {
@@ -139,7 +133,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"dc35494d9dfdf5e3c2e093a37f3e31e5\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"fff78b70a5fd9ed72c7609cc8a864e16\")"
     ]
   }
 }

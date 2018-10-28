@@ -93,6 +93,6 @@
         android:src="@drawable/ic_check_very_light_grey_24dp"
         app:rippleColor="@color/veryLightGrey"
         app:useCompatPadding="true"
-        android:onClick="addANewUser"/>
+        android:onClick="NewUser"/>
 
 </RelativeLayout>

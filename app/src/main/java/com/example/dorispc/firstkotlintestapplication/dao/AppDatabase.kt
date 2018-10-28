@@ -25,7 +25,6 @@ abstract class AppDatabase : RoomDatabase() {
         fun getInstance(context: Context): AppDatabase? {
             if (INSTANCE == null) synchronized(AppDatabase::class) {
                 INSTANCE = Room.databaseBuilder(context.applicationContext, AppDatabase::class.java, "MyFidelitycards")
-                        .allowMainThreadQueries()
                         .build()
             }
             return INSTANCE

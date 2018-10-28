@@ -13,7 +13,7 @@ interface UserDao {
     fun getAll(): List<User>
 
     @Insert
-    fun insert(user: User)
+    fun insert(user: Array<out User?>)
 
     @Update
     fun update(user: User)
