@@ -11,16 +11,16 @@ import com.example.dorispc.firstkotlintestapplication.bo.Shop
 import com.example.dorispc.firstkotlintestapplication.bo.User
 import com.example.dorispc.firstkotlintestapplication.utils.Converters
 
-@Database(entities = [(User::class),(Shop::class),(Fidelitycard::class)], version = 1)
+@Database(entities = [User::class,Shop::class,Fidelitycard::class], version = 1)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
-    abstract fun fidelitycardDao():FidelitycardDAO
+    abstract fun fidelitycardDao():FidelitycardDao
     abstract fun userDao(): UserDao
     abstract fun shopDao(): ShopDao
 
     companion object {
-        private var INSTANCE: AppDatabase? = null
+        var INSTANCE: AppDatabase? = null
 
         fun getInstance(context: Context): AppDatabase? {
             if (INSTANCE == null) synchronized(AppDatabase::class) {

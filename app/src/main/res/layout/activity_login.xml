@@ -29,28 +29,10 @@
     android:textAlignment="center"/>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/lvUsersLogin"
+        android:id="@+id/rvUsersLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="40dp">
     </android.support.v7.widget.RecyclerView>
-
-    <Button
-        android:id="@+id/btnAddANewUserLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:drawableStart="@drawable/ic_person_add_green_22dp"
-        android:drawablePadding="10dp"
-        android:text="@string/add_a_new_user"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        android:textAlignment="textStart"
-        android:background="#FFF"
-        android:layout_marginLeft="40dp"
-        android:layout_marginRight="40dp"
-        android:onClick="ToAddAUserActivity"
-        />
-
-
 
 </LinearLayout>

@@ -17,18 +17,20 @@ class Converters {
     }
 
     @TypeConverter
-    fun stringToFidelitycards(value: String): FidelitycardS {
-        val cards = Arrays.asList(value.split("\\s*,\\s*".toRegex()).dropLastWhile { it.isEmpty() }.toTypedArray())
-        return FidelitycardS(cards)
+    fun stringToFidelitycards(value: String?): FidelitycardS? {
+        val cards = Arrays.asList(value?.split("\\s*,\\s*".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray())
+        return FidelitycardS(cards as MutableList<Array<String>>)
     }
 
     @TypeConverter
-    fun fidelitycardsToString(cl: FidelitycardS): String {
+    fun fidelitycardsToString(cl: FidelitycardS?): String? {
         var value = ""
 
-        for (lang in cl.fidelitycards)
-            value += lang + ","
-
-        return value
+        if(cl != null){
+            for (lang in cl.fidelitycards)
+                value += lang + ","
+            return value
+        }
+        return null
     }
 }

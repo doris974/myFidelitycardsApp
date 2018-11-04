@@ -1,38 +1,48 @@
 package com.example.dorispc.firstkotlintestapplication.adapter
 
+
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-
 import com.example.dorispc.firstkotlintestapplication.R
 import com.example.dorispc.firstkotlintestapplication.bo.User
+import kotlinx.android.synthetic.main.elements_userslistlogin.view.*
 
-class UserAdapter (var userList: List<User> ) : RecyclerView.Adapter<UserAdapter.MyViewHolder>() {
-    // Provide a reference to the views for each data item
-    // Complex data items may need more than one view per item, and
-    // you provide access to all the views for a data item in a view holder.
-    // Each data item is just a string in this case that is shown in a TextView.
-    class MyViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
 
-    // Create new views (invoked by the layout manager)
-    override fun onCreateViewHolder(parent: ViewGroup,
-                                    viewType: Int): UserAdapter.MyViewHolder {
-        // create a new view
-        val textView = LayoutInflater.from(parent.context)
-                .inflate(R.layout.elements_userslistlogin, parent, false) as TextView
-        // set the view's size, margins, paddings and layout parameters
-        //...
-        return MyViewHolder(textView)
+class UserAdapter(val usersList: List<User>, val context: Context, val listener: UserAdapter.ClickUserListener)
+    : RecyclerView.Adapter<UserAdapter.ViewHolder>() {
+    override fun onCreateViewHolder(viewGroup: ViewGroup, position: Int): ViewHolder {
+        return ViewHolder(LayoutInflater.from(context).inflate(R.layout.elements_userslistlogin, viewGroup, false))
     }
 
-    // Replace the contents of a view (invoked by the layout manager)
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        // - get element from your dataset at this position
-        // - replace the contents of the view with that element
-        holder.textView.text = userList[position].name + " " + userList[position].firstname
+    override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
+        viewHolder.tvUserFullnameLogin?.text = usersList.get(position).firstname + " " + usersList.get(position).name
     }
 
-    // Return the size of your dataset (invoked by the layout manager)
-    override fun getItemCount() = userList.size
+    override fun getItemCount(): Int {
+        return usersList.size
+    }
+
+    inner class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
+
+        var tvUserFullnameLogin : TextView = view.tvUserFullnameLogin
+
+        init {
+            tvUserFullnameLogin.setOnClickListener {v ->
+
+                if (this@UserAdapter.listener != null) {
+                    var userClicked = usersList[adapterPosition]
+                    listener.onClickUser(userClicked)
+                }
+            }
+        }
+    }
+
+    interface ClickUserListener {
+        fun onClickUser(user: User)
+    }
+
 }

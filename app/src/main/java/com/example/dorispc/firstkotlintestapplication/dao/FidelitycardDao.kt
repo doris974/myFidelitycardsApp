@@ -4,7 +4,7 @@ import android.arch.persistence.room.*
 import com.example.dorispc.firstkotlintestapplication.bo.Fidelitycard
 
 @Dao
-interface FidelitycardDAO {
+interface FidelitycardDao {
     @Query("SELECT * FROM fidelitycard WHERE id = :id")
     fun getOne(id: Int):Fidelitycard
 
