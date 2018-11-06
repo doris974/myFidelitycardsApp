@@ -4,9 +4,11 @@ import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.Toolbar
 import android.widget.Toast
 import com.example.dorispc.firstkotlintestapplication.R
 import com.example.dorispc.firstkotlintestapplication.bo.User
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : BaseActivity(){
 
@@ -14,7 +16,9 @@ class MainActivity : BaseActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var user: User = intent.getParcelableExtra("user")
-        Toast.makeText(this, user.firstname, Toast.LENGTH_LONG).show()
+        tbBasic.title = getString(R.string.welcome_firstname,user.firstname)
+        setSupportActionBar(tbBasic)
+
     }
 
     companion object {

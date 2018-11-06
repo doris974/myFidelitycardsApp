@@ -3,6 +3,7 @@
     <string name="field_name">Name</string>
     <string name="field_firstname">Firstname</string>
     <string name="welcome_sentence_login">Welcome to \n My Fidelitycard App</string>
+    <string name="welcome_firstname">Welcome %1$s</string>
     <string name="title_activity_add_auser">AddAUserActivity</string>
     <string name="add_a_new_user">Add a new user</string>
     <string name="name">Name</string>

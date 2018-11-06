@@ -16,7 +16,7 @@ import com.example.dorispc.firstkotlintestapplication.bo.User
 import com.example.dorispc.firstkotlintestapplication.dao.AppDatabase
 import kotlinx.android.synthetic.main.activity_login.*
 
-class LoginActivity : BaseActivity(), ClickUserListener {
+class LoginActivity : AppCompatActivity(), ClickUserListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +26,20 @@ class LoginActivity : BaseActivity(), ClickUserListener {
         UsersWorker().execute()
     }
 
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.login_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.itemId == R.id.addANewUserLogin) {
+            val intent = Intent(this, AddAUserActivity::class.java)
+            startActivity(intent)
+        }
+
+        return true
+    }
     fun callBackGetAllUsers(usersList: List<User>?) {
         rvUsersLogin.adapter = usersList?.let { UserAdapter(it, this, this) }
         Toast.makeText(this@LoginActivity,"callback OK", Toast.LENGTH_LONG).show()

@@ -1,4 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <item
+        android:id="@+id/addANewCardMain"
+        app:showAsAction="always"
+        android:icon="@drawable/ic_add_a_photo_vey_light_grey_24dp"
+        android:title="Add a new card"
+        />
+
+    <item
+        android:id="@+id/menuCreateNewCard"
+        android:title="Create a new card"
+        />
+    <item
+        android:id="@+id/menuModifyDeleteACard"
+        android:title="Modify/delete a card"
+        />
+
+    <item
+        android:id="@+id/menuSettings"
+        android:title="Settings"
+        />
+
+
+
 
 </menu>

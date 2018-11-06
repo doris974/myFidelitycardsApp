@@ -10,16 +10,29 @@ open class BaseActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
-        inflater.inflate(R.menu.login_menu, menu)
+        inflater.inflate(R.menu.main_menu, menu)
+
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
-        if (item?.getItemId() == R.id.addANewUserLogin) {
-            val intent = Intent(this, AddAUserActivity::class.java)
-            startActivity(intent)
+    override fun onOptionsItemSelected(item: MenuItem)= when (item.itemId) {
+        R.id.menuCreateNewCard -> {
+            startActivity(AddAFidelitycard.newIntent(this))
+            true
         }
 
-        return true
+        R.id.menuModifyDeleteACard -> {
+            startActivity(AddAFidelitycard.newIntent(this))
+            true
+        }
+
+        R.id.menuSettings -> {
+            startActivity(AddAFidelitycard.newIntent(this))
+            true
+        }
+
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
     }
 }
