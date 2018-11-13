@@ -5,7 +5,7 @@ import com.example.dorispc.firstkotlintestapplication.bo.Shop
 
 @Dao
 interface ShopDao {
-    @Query("SELECT * FROM shop WHERE id = :id")
+    @Query("SELECT * FROM shop WHERE idShop = :id")
     fun getOne(id: Int): Shop
 
     @Query("SELECT * FROM shop")

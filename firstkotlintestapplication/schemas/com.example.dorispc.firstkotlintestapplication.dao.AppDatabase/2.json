@@ -2,15 +2,15 @@
   "formatVersion": 1,
   "database": {
     "version": 2,
-    "identityHash": "864113181bc3631443600725086cb31a",
+    "identityHash": "8c544f9ad02b622c95b5762224c0c274",
     "entities": [
       {
-        "tableName": "user",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `firstname` TEXT NOT NULL, `username` TEXT NOT NULL, `email` TEXT NOT NULL, `password` TEXT NOT NULL, `listOfFidelitycardS` TEXT)",
+        "tableName": "User",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idUser` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `firstname` TEXT NOT NULL, `email` TEXT NOT NULL, `password` TEXT NOT NULL)",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "id",
+            "fieldPath": "idUser",
+            "columnName": "idUser",
             "affinity": "INTEGER",
             "notNull": false
           },
@@ -27,12 +27,6 @@
             "notNull": true
           },
           {
-            "fieldPath": "username",
-            "columnName": "username",
-            "affinity": "TEXT",
-            "notNull": true
-          },
-          {
             "fieldPath": "email",
             "columnName": "email",
             "affinity": "TEXT",
@@ -43,17 +37,11 @@
             "columnName": "password",
             "affinity": "TEXT",
             "notNull": true
-          },
-          {
-            "fieldPath": "listOfFidelitycardS",
-            "columnName": "listOfFidelitycardS",
-            "affinity": "TEXT",
-            "notNull": false
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "id"
+            "idUser"
           ],
           "autoGenerate": true
         },
@@ -61,14 +49,14 @@
         "foreignKeys": []
       },
       {
-        "tableName": "shop",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `logo` TEXT NOT NULL)",
+        "tableName": "Shop",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idShop` INTEGER PRIMARY KEY AUTOINCREMENT, `name` TEXT NOT NULL, `logo` TEXT NOT NULL)",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "id",
+            "fieldPath": "idShop",
+            "columnName": "idShop",
             "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "name",
@@ -85,7 +73,7 @@
         ],
         "primaryKey": {
           "columnNames": [
-            "id"
+            "idShop"
           ],
           "autoGenerate": true
         },
@@ -93,20 +81,14 @@
         "foreignKeys": []
       },
       {
-        "tableName": "fidelitycard",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `shopId` INTEGER NOT NULL, `validityDate` INTEGER NOT NULL, `linkToAccount` TEXT NOT NULL, `userId` INTEGER NOT NULL)",
+        "tableName": "Fidelitycard",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`idFidelitycard` INTEGER PRIMARY KEY AUTOINCREMENT, `validityDate` INTEGER NOT NULL, `linkToAccount` TEXT NOT NULL, `userId` INTEGER NOT NULL, `idShop` INTEGER, `name` TEXT NOT NULL, `logo` TEXT NOT NULL)",
         "fields": [
           {
-            "fieldPath": "id",
-            "columnName": "id",
+            "fieldPath": "idFidelitycard",
+            "columnName": "idFidelitycard",
             "affinity": "INTEGER",
-            "notNull": true
-          },
-          {
-            "fieldPath": "shopId",
-            "columnName": "shopId",
-            "affinity": "INTEGER",
-            "notNull": true
+            "notNull": false
           },
           {
             "fieldPath": "validityDate",
@@ -125,11 +107,29 @@
             "columnName": "userId",
             "affinity": "INTEGER",
             "notNull": true
+          },
+          {
+            "fieldPath": "shop.idShop",
+            "columnName": "idShop",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "shop.name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "shop.logo",
+            "columnName": "logo",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
           "columnNames": [
-            "id"
+            "idFidelitycard"
           ],
           "autoGenerate": true
         },
@@ -139,7 +139,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"864113181bc3631443600725086cb31a\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"8c544f9ad02b622c95b5762224c0c274\")"
     ]
   }
 }

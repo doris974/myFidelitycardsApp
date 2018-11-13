@@ -3,11 +3,14 @@ package com.example.dorispc.firstkotlintestapplication.bo
 import android.arch.persistence.room.ColumnInfo
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
 
-@Entity(tableName = "shop")
+@Entity
+@Parcelize
 data class Shop (
         @PrimaryKey(autoGenerate = true)
-        @ColumnInfo(name = "id")val id: Int,
-        @ColumnInfo(name = "name")val name: String,
-        @ColumnInfo(name = "logo")var logo: String
-)
+        val idShop: Int,
+        val name: String,
+        var logo: String
+) : Parcelable

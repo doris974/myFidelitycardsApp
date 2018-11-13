@@ -4,4 +4,4 @@ import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-data class FidelitycardS (var fidelitycards: MutableList<Array<String>>) : Parcelable
+data class FidelitycardList (var fidelitycardList: List<Fidelitycard>) : Parcelable

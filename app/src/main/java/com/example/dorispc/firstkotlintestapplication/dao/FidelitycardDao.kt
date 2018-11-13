@@ -5,7 +5,7 @@ import com.example.dorispc.firstkotlintestapplication.bo.Fidelitycard
 
 @Dao
 interface FidelitycardDao {
-    @Query("SELECT * FROM fidelitycard WHERE id = :id")
+    @Query("SELECT * FROM fidelitycard WHERE idFidelitycard = :id")
     fun getOne(id: Int):Fidelitycard
 
     @Query("SELECT * FROM fidelitycard WHERE userId = :userId")

@@ -1,7 +1,6 @@
 package com.example.dorispc.firstkotlintestapplication.utils
 
 import android.arch.persistence.room.TypeConverter
-import com.example.dorispc.firstkotlintestapplication.bo.FidelitycardS
 import java.util.*
 
 
@@ -16,14 +15,34 @@ class Converters {
         return date?.time
     }
 
+    /*
     @TypeConverter
-    fun stringToFidelitycards(value: String?): FidelitycardS? {
-        val cards = Arrays.asList(value?.split("\\s*,\\s*".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray())
-        return FidelitycardS(cards as MutableList<Array<String>>)
+    fun stringToFidelitycardList(value: String?): FidelitycardList? {
+        val fidelitycards = Arrays.asList(value?.split("\\s*,\\s*".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray())
+        return FidelitycardList(fidelitycards as MutableList<Fidelitycard>)
     }
 
     @TypeConverter
-    fun fidelitycardsToString(cl: FidelitycardS?): String? {
+    fun fidelitycardListToString(list: FidelitycardList?): String? {
+        var value = ""
+
+        if(list != null){
+            for (card in list.fidelitycardList)
+                value += card.idFidelitycard.toString() + ","
+            return value
+        }
+        return null
+    }
+
+
+    @TypeConverter
+    fun stringToShop(value: String?): Shop? {
+        val shops = Arrays.asList(value?.split("\\s*,\\s*".toRegex())?.dropLastWhile { it.isEmpty() }?.toTypedArray())
+        return Shop(shops as MutableList<Array<String>>)
+    }
+
+    @TypeConverter
+    fun shopToString(cl: FidelitycardS?): String? {
         var value = ""
 
         if(cl != null){
@@ -32,5 +51,5 @@ class Converters {
             return value
         }
         return null
-    }
+    }*/
 }

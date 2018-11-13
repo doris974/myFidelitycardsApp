@@ -31,7 +31,7 @@ class AddAUserActivity : AppCompatActivity() {
         if (name.isEmpty()) throw IllegalStateException("obligatoire")
 
         if(password == confirmPassword){
-            var user = User(null, name, firstname, email, password, null)
+            var user = User(null, name, firstname, email, password)
             Worker().execute(user)
         }
 

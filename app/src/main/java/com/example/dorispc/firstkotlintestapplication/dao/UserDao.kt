@@ -2,11 +2,12 @@ package com.example.dorispc.firstkotlintestapplication.dao
 
 
 import android.arch.persistence.room.*
+import com.example.dorispc.firstkotlintestapplication.bo.Fidelitycard
 import com.example.dorispc.firstkotlintestapplication.bo.User
 
 @Dao
 interface UserDao {
-    @Query("SELECT * FROM user WHERE id = :id")
+    @Query("SELECT * FROM user WHERE idUser = :id")
     fun getOne(id: Int): User
 
     @Query("SELECT * FROM user")
@@ -20,4 +21,7 @@ interface UserDao {
 
     @Delete
     fun delete(user: User)
+
+    @Query("SELECT * FROM Fidelitycard WHERE userId= :id")
+    fun getUsersFidelitycardList(id: Int) : List<Fidelitycard>
 }

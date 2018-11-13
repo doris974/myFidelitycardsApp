@@ -11,7 +11,7 @@ import com.example.dorispc.firstkotlintestapplication.bo.Shop
 import com.example.dorispc.firstkotlintestapplication.bo.User
 import com.example.dorispc.firstkotlintestapplication.utils.Converters
 
-@Database(entities = [User::class,Shop::class,Fidelitycard::class], version = 1)
+@Database(entities = [User::class,Shop::class,Fidelitycard::class], version = 4)
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
 
