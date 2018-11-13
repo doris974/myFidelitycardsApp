@@ -1,6 +1,7 @@
 package com.example.dorispc.firstkotlintestapplication.adapter
 
 import android.content.Context
+import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,9 @@ import android.widget.TextView
 import com.example.dorispc.firstkotlintestapplication.R
 import com.example.dorispc.firstkotlintestapplication.bo.Fidelitycard
 import kotlinx.android.synthetic.main.elements_fidelitycardslist.view.*
+import org.jetbrains.anko.image
+import org.jetbrains.anko.imageResource
+import org.jetbrains.anko.imageURI
 
 class FidelitycardAdapter(val fidelitycardList: List<Fidelitycard>, val context: Context, val listener: FidelitycardAdapter.ClickFidelitycardListener)
     : RecyclerView.Adapter<FidelitycardAdapter.ViewHolder>() {
@@ -19,7 +23,8 @@ class FidelitycardAdapter(val fidelitycardList: List<Fidelitycard>, val context:
     }
 
     override fun onBindViewHolder(viewHolder: ViewHolder, position: Int) {
-
+        viewHolder.ivLogoShopMain.imageURI = Uri.parse(fidelitycardList.get(position).shop.logo)
+        viewHolder.tvNameShopMain.text = fidelitycardList.get(position).shop.name
     }
 
     override fun getItemCount(): Int {
